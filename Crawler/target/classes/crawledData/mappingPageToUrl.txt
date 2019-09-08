@@ -1,0 +1,10 @@
+./src/main/resources/crawledData/pages/page9 https://en.wikipedia.org/wiki/Robert_E._Machol
+./src/main/resources/crawledData/pages/page6 https://en.wikipedia.org/wiki/Software_engineering_professionalism
+./src/main/resources/crawledData/pages/page5 https://en.wikipedia.org/wiki/Model_of_computation
+./src/main/resources/crawledData/pages/page8 https://en.wikipedia.org/wiki/Computing_platform
+./src/main/resources/crawledData/pages/page7 https://en.wikipedia.org/wiki/Intrusion_detection_system
+./src/main/resources/crawledData/pages/page2 https://en.wikipedia.org/wiki/Software_project_management
+./src/main/resources/crawledData/pages/page1 https://en.wikipedia.org/wiki/Software_engineering
+./src/main/resources/crawledData/pages/page4 https://en.wikipedia.org/wiki/Algorithm
+./src/main/resources/crawledData/pages/page10 https://en.wikipedia.org/wiki/Modularity
+./src/main/resources/crawledData/pages/page3 https://en.wikipedia.org/wiki/ALGOL

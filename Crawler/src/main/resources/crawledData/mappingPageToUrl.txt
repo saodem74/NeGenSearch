@@ -1,0 +1,2 @@
+./src/main/resources/crawledData/pages/page2 https://en.wikipedia.org/wiki/Software_project_management
+./src/main/resources/crawledData/pages/page1 https://en.wikipedia.org/wiki/Software_engineering
