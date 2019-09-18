@@ -2,8 +2,9 @@ import java.util.*;
 
 public class IndexMergeSort {
     public static void main(String[] args) {
+        InputPages.Page2Line("./Crawler/src/main/resources/crawledData/pages/page1");
         String[] ClassOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
-        String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria" };
+        String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria123", "Maria123" };
         String[] names = new String[ClassOne.length + ClassTwo.length];
 
         mergeSort(ClassOne);
