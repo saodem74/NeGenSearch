@@ -28,7 +28,7 @@ public class InputPages {
         List<String> PathFile = new ArrayList<String>();
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                PathFile.add(listOfFiles[i].getName() + ".txt");
+                PathFile.add(listOfFiles[i].getName());
             }
         }
         return PathFile;

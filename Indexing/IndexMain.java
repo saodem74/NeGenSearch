@@ -5,15 +5,18 @@ public class IndexMain {
         List<String> listOfFiles = new ArrayList<String>();
         listOfFiles = new InputPages().GetPath("./Crawler/src/main/resources/crawledData/pages/");
 
-        String[] FileNameArr = new String[listOfFiles.size()];
-        for (int i =0; i < listOfFiles.size(); i++)
-            FileNameArr[i] = listOfFiles.get(i);
-        for (String x : FileNameArr)
-            System.out.print(x + "\n");
-
         String SaveLine = "";
-        SaveLine = new InputPages().Page2Line("./Crawler/src/main/resources/crawledData/pages/page1");
-        //System.out.println(SaveLine);
+        String FileNameString = "";
+        List<String> LineList = new ArrayList<String>();
+        //Read Each file in directory
+        for (int i =0; i < listOfFiles.size(); i++){
+            FileNameString = listOfFiles.get(i);
+            SaveLine = new InputPages().Page2Line("./Crawler/src/main/resources/crawledData/pages/"+FileNameString);
+            LineList.add(SaveLine); //Save Webpage Line in "LineList"
+            //System.out.println(SaveLine);
+        }
+        //for (int i = 0; i < LineList.size(); i++)
+        //   System.out.println(LineList.get(i));
 
         String[] ClassOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
         String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };
