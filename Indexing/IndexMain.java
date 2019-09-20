@@ -1,7 +1,8 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 public class IndexMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         List<String> listOfFiles = new ArrayList<String>();
         listOfFiles = new InputPages().GetPath("./Crawler/src/main/resources/crawledData/pages/"); //Get Files list for the dictionary
 
@@ -9,12 +10,16 @@ public class IndexMain {
         //Read Each file in directory
         LineList = new DataCenter().GetLineList("./Crawler/src/main/resources/crawledData/pages/");
 
+        String stopString = "";
+        stopString = new InputPages().Stopword2Line("./Indexing/stopword.txt");
+        System.out.println(stopString);
+
         List<String> IndexList = new ArrayList<String>();
         for (int i = 0; i < LineList.size(); i++) {
             String FileNum = listOfFiles.get(i).replace("page","");
             IndexList.add(FileNum+",1");
             //System.out.println(IndexList.get(i));
-            String TempLine = LineList.get(i).replaceAll("[\\pP\\p{Punct}]","");
+            String TempLine = LineList.get(i).replaceAll("[\\pP\\p{Punct}]","|");
             //String[] arrOfStr = TempLine.split(" ");
             for (int count=0; count < TempLine.length(); count++){
                 if (TempLine.charAt(count) == ' '){

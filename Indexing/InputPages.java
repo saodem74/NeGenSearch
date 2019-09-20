@@ -1,17 +1,14 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.File;
+import java.io.*;
 import java.util.*;
 
 public class InputPages {
 
     public String Page2Line(String filePath) {
         BufferedReader reader;
+        StringBuilder contentBuilder = new StringBuilder();
         String ReadLine = "";
         try {
-            reader = new BufferedReader(new FileReader(
-                    filePath));
+            reader = new BufferedReader(new FileReader(filePath));
             // read next line
             String line = reader.readLine();
             ReadLine = line;
@@ -19,7 +16,21 @@ public class InputPages {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ReadLine = contentBuilder.toString();
         return ReadLine;
+    }
+
+    public String Stopword2Line(String filePath) throws FileNotFoundException {
+        String stopString = "";
+
+        File file = new File("./Indexing/stopword.txt");
+        Scanner scanner = new Scanner(file);
+
+        stopString = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            stopString = stopString + "," + scanner.nextLine();
+        }
+        return stopString;
     }
 
     public List<String> GetPath(String DirPath){
