@@ -5,10 +5,10 @@ public class InputPages {
 
     public String Page2Line(String filePath) {
         BufferedReader reader;
-        StringBuilder contentBuilder = new StringBuilder();
         String ReadLine = "";
         try {
-            reader = new BufferedReader(new FileReader(filePath));
+            reader = new BufferedReader(new FileReader(
+                    filePath));
             // read next line
             String line = reader.readLine();
             ReadLine = line;
@@ -16,7 +16,6 @@ public class InputPages {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ReadLine = contentBuilder.toString();
         return ReadLine;
     }
 

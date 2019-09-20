@@ -10,32 +10,36 @@ public class IndexMain {
         //Read Each file in directory
         LineList = new DataCenter().GetLineList("./Crawler/src/main/resources/crawledData/pages/");
 
-        String stopString = "";
-        stopString = new InputPages().Stopword2Line("./Indexing/stopword.txt");
-        System.out.println(stopString);
-
         List<String> IndexList = new ArrayList<String>();
-        for (int i = 0; i < LineList.size(); i++) {
-            String FileNum = listOfFiles.get(i).replace("page","");
-            IndexList.add(FileNum+",1");
-            //System.out.println(IndexList.get(i));
-            String TempLine = LineList.get(i).replaceAll("[\\pP\\p{Punct}]","|");
-            //String[] arrOfStr = TempLine.split(" ");
-            for (int count=0; count < TempLine.length(); count++){
-                if (TempLine.charAt(count) == ' '){
-                    IndexList.add(FileNum+","+Integer.toString(count+2));
-                }
-            }
 
-            //for (String a : IndexList)
-            //    System.out.println(a);
-            //System.out.println(LineList.get(i).charAt(0));
-        }
+        IndexList = new CircularShift().GetCircularIndex(LineList, listOfFiles);
+
+        //for (String a : IndexList)
+        //    System.out.println(a);
+        //System.out.println(LineList.get(i).charAt(0));
 
 
         String[] ClassOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
         String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };
         String[] names = new String[ClassOne.length + ClassTwo.length];
+
+        char[] data = new char[3];
+        data[0] = 'd';
+        data[1] = 'd';
+        data[2] = ' ';
+        data = new char[3];
+        data[0] = 'e';
+        data[1] = 'e';
+        data[2] = ' ';
+        String abc = new String(data);
+        String res = "";
+        String test = "ee";
+        res = res.concat(abc);
+        res = res.trim();
+        if(res.equals(test))
+            System.out.println(res);
+
+        //System.out.println(res);
 
         IndexMergeSort.mergeSort(ClassOne);
         IndexMergeSort.mergeSort(ClassTwo);
