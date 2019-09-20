@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +21,14 @@ public class CircularShift {
             String TempLine = LineList.get(i).replaceAll("[\\pP\\p{Punct}]","");
             //System.out.println(TempLine);
             for (int count=0; count < TempLine.length(); count++){
-                if (TempLine.charAt(count) == ' '){
+                if (TempLine.charAt(count) == ' '){ //Split the line by space
                     StopFlag = 0;
                     //Concate saved char into word (for compare with Stop word)
                     String ConcateWord = "";
-                    String StringStop = new String(TempLineWord);
-                    ConcateWord = ConcateWord.concat(StringStop);
+                    String StringStop = new String(TempLineWord);//Change char array into string
+                    ConcateWord = ConcateWord.concat(StringStop);//Concate the string
                     for (String StopCom : StopArray){
-                        if(ConcateWord.equals(StopCom.replaceAll("[\\pP\\p{Punct}]","")))
+                        if(ConcateWord.equals(StopCom.replaceAll("[\\pP\\p{Punct}]",""))) //Compare word and stopword
                             StopFlag = 1;
                     }
                     if (StopFlag == 0)
@@ -38,8 +39,11 @@ public class CircularShift {
                 TempLineWord[TempIndex] = TempLine.charAt(count);
             }
 
-            for (String a : IndexList)
+            PrintWriter out = new PrintWriter("CirsularShiftIndex.txt");
+            for (String a : IndexList){
+                out.println(a);
                 System.out.println(a);
+            }
             //System.out.println(LineList.get(i).charAt(0));
         }
         return IndexList;

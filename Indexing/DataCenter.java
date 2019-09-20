@@ -18,4 +18,11 @@ public class DataCenter {
         }
         return LineList;
     }
+
+    public String getLine(List<String> LineList, int LineNum, int GapNum){
+        String AssignLine = LineList.get(LineNum - 1);
+        String ShiftedLine = AssignLine.substring(GapNum - 1) + AssignLine.substring(0,GapNum - 1);
+        //System.out.println(ShiftedLine);
+        return ShiftedLine;
+    }
 }
