@@ -10,14 +10,23 @@ public class IndexMain {
         //Read Each file in directory
         LineList = new DataCenter().GetLineList("./Crawler/src/main/resources/crawledData/TestPages/");
 
-        List<String> IndexList = new ArrayList<String>();
+        //Do CircularShift
+        //List<String> IndexList = new ArrayList<String>();
+        //IndexList = new CircularShift().GetCircularIndex(LineList, listOfFiles);
 
-        IndexList = new CircularShift().GetCircularIndex(LineList, listOfFiles);
+        String CircularTestIndex = new InputPages().Test2Line("./CircularShiftIndex.txt");
+        System.out.println(CircularTestIndex);
 
-        String IndexLine = "";
+        String[] TestIndex = CircularTestIndex.split(" ");
+        for (String a : TestIndex){
+            System.out.println(a);
+            String [] TempNum = a.split(",");
+            String IndexLine = "";
+            IndexLine = new DataCenter().getLine(LineList, Integer.parseInt(TempNum[0]), Integer.parseInt(TempNum[1]));
+            System.out.println(IndexLine);
+        }
 
-        IndexLine = new DataCenter().getLine(LineList, 1, 10);
-        System.out.println(IndexLine);
+
 
         String[] ClassOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
         String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };

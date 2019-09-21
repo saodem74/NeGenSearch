@@ -14,6 +14,8 @@ public class DataCenter {
         for (int i =0; i < listOfFiles.size(); i++){
             FileNameString = listOfFiles.get(i);
             SaveLine = new InputPages().Page2Line(DirPath+FileNameString);
+            SaveLine = SaveLine.replaceAll("[\\pP\\p{Punct}]","");
+            SaveLine = SaveLine.replaceAll("( )+"," ");
             LineList.add(SaveLine); //Save Webpage Line in "LineList"
         }
         return LineList;

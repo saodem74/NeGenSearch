@@ -11,7 +11,7 @@ public class InputPages {
                     filePath));
             // read next line
             String line = reader.readLine();
-            ReadLine = line;
+            ReadLine = line.replaceAll("[\\pP\\p{Punct}]","");
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -22,7 +22,7 @@ public class InputPages {
     public String Stopword2Line(String filePath) throws FileNotFoundException {
         String stopString = "";
 
-        File file = new File("./Indexing/stopword.txt");
+        File file = new File(filePath);
         Scanner scanner = new Scanner(file);
 
         stopString = scanner.nextLine();
@@ -31,6 +31,18 @@ public class InputPages {
         }
         return stopString;
     }
+
+    public String Test2Line(String TestPath) throws FileNotFoundException {
+        File testfile = new File(TestPath);
+        Scanner testscanner = new Scanner(testfile);
+
+        String TestString = testscanner.nextLine();
+        while (testscanner.hasNextLine()) {
+            TestString = TestString + " " + testscanner.nextLine();
+        }
+        return TestString;
+    }
+
 
     public List<String> GetPath(String DirPath){
         File folder = new File(DirPath);
