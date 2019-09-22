@@ -25,19 +25,37 @@ public class IndexMain {
             IndexLine = new DataCenter().getLine(LineList, Integer.parseInt(TempNum[0]), Integer.parseInt(TempNum[1]));
             System.out.println(IndexLine);
         }
+/*
+        String[] SortedIndex = {};
+        String[] RightIndex = {""};
 
+        for (String UnSortIndex : TestIndex){
+            RightIndex[0] = UnSortIndex;
+            String[] names = new String[SortedIndex.length + UnSortIndex.length];
+            IndexMergeSort.mergeSort(UnSortIndex);
+            IndexMergeSort.merge(names, SortedIndex, UnSortIndex);
+            RightIndex = {""};
+        }
+*/
 
+        String[] TempOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
+        String[] TempTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };
 
-        String[] ClassOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
-        String[] ClassTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };
-        String[] names = new String[ClassOne.length + ClassTwo.length];
+        List<String> ClassOne = Arrays.asList(TempOne);
+        List<String> ClassTwo = Arrays.asList(TempTwo);
+        List<String> names = new ArrayList<String>();
+
+        //initial sort listArray
+        for (int i=0; i< ClassOne.size()+ClassTwo.size(); i++){
+            names.add("");
+        }
 
         IndexMergeSort.mergeSort(ClassOne);
         IndexMergeSort.mergeSort(ClassTwo);
 
         IndexMergeSort.merge(names, ClassOne, ClassTwo);
 
-        IndexMergeSort.mergeSort(names);
+        //IndexMergeSort.mergeSort(names);
 
         for (String ClassThree : names) {
             System.out.println(ClassThree);

@@ -1,34 +1,37 @@
 import java.util.*;
 
 public class IndexMergeSort {
-    public static void mergeSort(String[] names) {
-        if (names.length >= 2) {
-            String[] left = new String[names.length / 2];
-            String[] right = new String[names.length - names.length / 2];
+    public static void mergeSort(List<String> names) {
+        if (names.size() >= 2) {
+            List<String> left = new ArrayList<String>();
+            List<String> right = new ArrayList<String>();
 
-            for (int i = 0; i < left.length; i++) {
-                left[i] = names[i];
+            int ListIndex = 0;
+            for (String a : names) {
+                if (ListIndex < names.size()/2) {
+                    left.add(a);
+                    ListIndex = ListIndex + 1;
+                }
+                else{
+                    right.add(a);
+                    ListIndex = ListIndex + 1;
+                }
             }
-
-            for (int i = 0; i < right.length; i++) {
-                right[i] = names[i + names.length / 2];
-            }
-
             mergeSort(left);
             mergeSort(right);
             merge(names, left, right);
         }
     }
 
-    public static void merge(String[] names, String[] left, String[] right) {
+    public static void merge(List<String> names, List<String> left, List<String> right) {
         int a = 0;
         int b = 0;
-        for (int i = 0; i < names.length; i++) {
-            if (b >= right.length || (a < left.length && left[a].compareToIgnoreCase(right[b]) < 0)) {
-                names[i] = left[a];
+        for (int i = 0; i < names.size(); i++) {
+            if (b >= right.size() || (a < left.size() && left.get(a).compareToIgnoreCase(right.get(b)) < 0)) {
+                names.set(i, left.get(a));
                 a++;
             } else {
-                names[i] = right[b];
+                names.set(i, right.get(b));
                 b++;
             }
         }
