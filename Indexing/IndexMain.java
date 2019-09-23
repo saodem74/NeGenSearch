@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 public class IndexMain {
     public static void main(String[] args) throws FileNotFoundException {
@@ -11,10 +13,10 @@ public class IndexMain {
         LineList = new DataCenter().GetLineList("./Crawler/src/main/resources/crawledData/TestPages/");
 
         //Do CircularShift
-        //List<String> IndexList = new ArrayList<String>();
-        //IndexList = new CircularShift().GetCircularIndex(LineList, listOfFiles);
-
-        String CircularTestIndex = new InputPages().Test2Line("./CircularShiftIndex.txt");
+        List<String> IndexList = new ArrayList<String>();
+        IndexList = new CircularShift().GetCircularIndex(LineList, listOfFiles);
+/*
+        String CircularTestIndex = new InputPages().Test2Line("./SortedCircularIndex.txt");
         System.out.println(CircularTestIndex);
 
         String[] TestIndex = CircularTestIndex.split(" ");
@@ -25,6 +27,17 @@ public class IndexMain {
             IndexLine = new DataCenter().getLine(LineList, Integer.parseInt(TempNum[0]), Integer.parseInt(TempNum[1]));
             System.out.println(IndexLine);
         }
+*/
+        System.out.println("Do Sorting!!!\n");
+
+        List<String> SortedIndex = new ArrayList<String>();
+
+        SortedIndex = new IndexMergeSort().Alphabetizer(LineList, IndexList);
+
+        for (String ClassThree : SortedIndex) {
+            System.out.println(ClassThree);
+        }
+
 /*
         String[] SortedIndex = {};
         String[] RightIndex = {""};
@@ -37,7 +50,7 @@ public class IndexMain {
             RightIndex = {""};
         }
 */
-
+/*
         String[] TempOne = { "Kring", "Panda", "Soliel", "Darryl", "Chan", "Matang", "Jollibee.", "Inasal" };
         String[] TempTwo = { "Minnie", "Kitty", "Madonna", "Miley", "Zoom-zoom", "Cristine", "Bubbles", "Ara", "Rose", "Maria1", "Maria10", "Maria9" };
 
@@ -50,15 +63,17 @@ public class IndexMain {
             names.add("");
         }
 
-        IndexMergeSort.mergeSort(ClassOne);
-        IndexMergeSort.mergeSort(ClassTwo);
+        IndexMergeSort.mergeSort(LineList, ClassOne);
+        IndexMergeSort.mergeSort(LineList, ClassTwo);
 
-        IndexMergeSort.merge(names, ClassOne, ClassTwo);
+        IndexMergeSort.merge(LineList, names, ClassOne, ClassTwo);
 
         //IndexMergeSort.mergeSort(names);
 
         for (String ClassThree : names) {
             System.out.println(ClassThree);
         }
+*/
+
     }
 }
