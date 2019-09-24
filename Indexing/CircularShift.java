@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CircularShift {
+    //Circular shift Index and remove stop word
     public List<String> GetCircularIndex(List<String> LineList, List<String> listOfFiles) throws FileNotFoundException {
         String stopString = "";
         stopString = new InputPages().Stopword2Line("./Indexing/stopword.txt");
-        //stopString = stopString.replaceAll("[\\pP\\p{Punct}]","");
         String[] StopArray = stopString.split(",");
 
         char[] TempLineWord = new char[200]; //create temp word saving parameter for possibly stop word
@@ -20,7 +20,7 @@ public class CircularShift {
         for (int i = 0; i < LineList.size(); i++) {
             String FileNum = listOfFiles.get(i).replace("page","");
             String TempLine = LineList.get(i).replaceAll("[\\pP\\p{Punct}]","");
-            TempLine = TempLine.replaceAll("( )+"," ") + ' ';
+            TempLine = TempLine.replaceAll("( )+"," ") + ' '; //Add last space for later split
             for (int count=0; count < TempLine.length(); count++){
                 StopFlag = 0;
                 if (TempLine.charAt(count) == ' '){ //Split the line by space
@@ -46,14 +46,10 @@ public class CircularShift {
                     TempIndex = TempIndex + 1;
                 }
             }
-
-
-            //System.out.println(LineList.get(i).charAt(0));
         }
-        PrintStream out = new PrintStream(new FileOutputStream("CircularShiftIndex.txt"));
+        PrintStream out = new PrintStream(new FileOutputStream("CircularShiftIndex.txt")); //Save unsorted index list into file
         for (String a : IndexList){
             out.print(a+'\n');
-            //System.out.println(a);
         }
         return IndexList;
     }

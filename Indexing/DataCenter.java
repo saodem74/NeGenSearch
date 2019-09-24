@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataCenter {
-    public List<String> GetLineList(String DirPath){
+    public List<String> GetLineList(String DirPath){ //Read all webpages in the folder and remove punctuation and extra space
         List<String> listOfFiles = new ArrayList<String>();
         listOfFiles = new InputPages().GetPath(DirPath);
-
 
         String SaveLine = "";
         String FileNameString = "";
@@ -21,10 +20,9 @@ public class DataCenter {
         return LineList;
     }
 
-    public String getLine(List<String> LineList, int LineNum, int GapNum){
-        String AssignLine = LineList.get(LineNum - 1);
+    public String getLine(List<String> LineList, List<String> listOfFiles, int LineNum, int GapNum){ //Input index and output shifted line
+        String AssignLine = LineList.get(listOfFiles.indexOf("page" + LineNum));
         String ShiftedLine = AssignLine.substring(GapNum - 1) + AssignLine.substring(0,GapNum - 1);
-        //System.out.println(ShiftedLine);
         return ShiftedLine;
     }
 }

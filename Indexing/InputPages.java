@@ -3,6 +3,7 @@ import java.util.*;
 
 public class InputPages {
 
+    //Read webpage files into string line
     public String Page2Line(String filePath) {
         BufferedReader reader;
         String ReadLine = "";
@@ -19,6 +20,7 @@ public class InputPages {
         return ReadLine;
     }
 
+    //Read stop word file into string line
     public String Stopword2Line(String filePath) throws FileNotFoundException {
         String stopString = "";
 
@@ -32,6 +34,7 @@ public class InputPages {
         return stopString;
     }
 
+    //Testing purpose (just ignore it)
     public String Test2Line(String TestPath) throws FileNotFoundException {
         File testfile = new File(TestPath);
         Scanner testscanner = new Scanner(testfile);
@@ -43,7 +46,7 @@ public class InputPages {
         return TestString;
     }
 
-
+    //Get all file listed in the webpages folder
     public List<String> GetPath(String DirPath){
         File folder = new File(DirPath);
         File[] listOfFiles = folder.listFiles();
