@@ -59,7 +59,7 @@ public class IndexMergeSort {
         List<String> RightIndex = new ArrayList<String>();
         List<String> SortedIndex = new ArrayList<String>();
         for (String UnSortIndex : IndexList){
-            System.out.println(UnSortIndex); //Print as
+            //System.out.println(UnSortIndex); //Print as
             //Save first index as first left string
             if (LeftIndex.isEmpty()){
                 LeftIndex.add(UnSortIndex);
