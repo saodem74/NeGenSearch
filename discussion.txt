@@ -1,0 +1,46 @@
+page1: it is software engineer
+page2: it is computer science
+
+------
+computer science it is    --> (2, 7)
+engineer it is software  --> (1, 16)
+is computer science it (2, 4)
+is software engineer it (1, 4)
+it is computer science (2, 1)
+it is software engineer (1, 1)
+science it is computer (2, 16)
+software engineer it is (1, 7)
+
+-----
+
+(2, 7) ?
+(1, 16)
+(2, 4)
+(1, 4)
+(2, 1)
+(1, 1)
+(2, 16)
+(1, 7)
+
+2,7 1,16 ...
+
+Map<Integer, String> mapIndexToURL;
+mapIndexToURL.get(2) -> "wikipedia.org/software_engineer"
+mapIndexToURL.get(1) -> "wikipedia.org/software_indexing"
+
+1 wikipedia.org/software_indexing
+2 wikipedia.org/software_engineer
+
+--------------------------------------------------
+software engineer
+
+public void checkAQuery(String query, int idx1, int idx2) {
+	// Convert indecies to string
+	String orginal = getLine(idx1, idx2);
+	// Check query vs orginal;
+	Query = "software", "engineer"
+	orginal = "software", "science", "it", "is"
+	// (O(n)
+	//if (orginal.contains(query))
+	-> N^2
+}
