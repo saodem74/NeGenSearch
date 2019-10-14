@@ -34,6 +34,19 @@ public class InputPages {
         return stopString;
     }
 
+    public String url2Line(String filePath) throws FileNotFoundException {
+        String urlString = "";
+
+        File file = new File(filePath);
+        Scanner scanner = new Scanner(file);
+
+        urlString = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            urlString = urlString + ";" + scanner.nextLine();
+        }
+        return urlString;
+    }
+
     //Testing purpose (just ignore it)
     public String Test2Line(String TestPath) throws FileNotFoundException {
         File testfile = new File(TestPath);

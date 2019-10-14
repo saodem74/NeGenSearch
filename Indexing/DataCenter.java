@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,5 +25,19 @@ public class DataCenter {
         String AssignLine = LineList.get(listOfFiles.indexOf("page" + LineNum));
         String ShiftedLine = AssignLine.substring(GapNum - 1) + AssignLine.substring(0,GapNum - 1);
         return ShiftedLine;
+    }
+
+    public String getUrl(String PageNum) throws FileNotFoundException { //Map page number to page URL
+        String MappingPage2URL = new InputPages().url2Line("./Crawler/src/main/resources/crawledData/mappingPageToUrl.txt");
+        String[] MappingPageArray = MappingPage2URL.split(";");
+        String[] NumAndURL = {};
+        for (String MappingLine : MappingPageArray){
+            NumAndURL = MappingLine.split(" "); //Split file path and URL
+            String[] SplitNum = NumAndURL[0].split("page"); //Split page number from the file path
+            if (SplitNum[2].replaceAll("\n", "").equals(PageNum)){ //Compare with PageNum you want
+                break;
+            }
+        }
+        return NumAndURL[1];
     }
 }
