@@ -9,7 +9,7 @@ public class CircularShift {
     //Circular shift Index and remove stop word
     public List<String> GetCircularIndex(List<String> LineList, List<String> listOfFiles) throws FileNotFoundException {
         String stopString = "";
-        stopString = new InputPages().Stopword2Line("./Indexing/stopword.txt");
+        stopString = new InputPages().Stopword2Line("./stopword.txt");
         String[] StopArray = stopString.split(",");
 
         char[] TempLineWord = new char[200]; //create temp word saving parameter for possibly stop word

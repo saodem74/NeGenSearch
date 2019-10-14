@@ -9,12 +9,12 @@ public class IndexMain {
         System.out.println("Get Data List\n");
         List<String> listOfFiles = new ArrayList<String>();
         //Get all webpages list into "listOfFiles"
-        listOfFiles = new InputPages().GetPath("./Crawler/src/main/resources/crawledData/pages/"); //Get Files list for the dictionary
+        listOfFiles = new InputPages().GetPath("../Crawler/src/main/resources/crawledData/pages/"); //Get Files list for the dictionary
 
         System.out.println("Get All Data\n");
         List<String> LineList = new ArrayList<String>();
         //Read Each file in directory into "LiseList"
-        LineList = new DataCenter().GetLineList("./Crawler/src/main/resources/crawledData/pages/");
+        LineList = new DataCenter().GetLineList("../Crawler/src/main/resources/crawledData/pages/");
 
         System.out.println("CircularShift All Data and save as index\n");
         //Do CircularShift and save into "IndexList" (Unsorted)
@@ -27,9 +27,9 @@ public class IndexMain {
         List<String> SortedIndex = new ArrayList<String>();
         SortedIndex = new IndexMergeSort().Alphabetizer(LineList, listOfFiles, IndexList);
 
-        for (String ClassThree : SortedIndex) {
-            System.out.println(ClassThree);
-        }
+        //for (String ClassThree : SortedIndex) {
+          //  System.out.println(ClassThree);
+        //}
 
     }
 }
