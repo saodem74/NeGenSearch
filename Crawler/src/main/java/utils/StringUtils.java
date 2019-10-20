@@ -28,7 +28,7 @@ public class StringUtils {
 			if (isAllowed(s.charAt(i))) sb.append(s.charAt(i));
 		}
 
-		return filterUnusedful(sb.toString());
+		return removeRedundantSpace(filterUnusedful(sb.toString())) ;
 	}
 
 	public static String filterUnusedful(String str) {

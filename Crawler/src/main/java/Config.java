@@ -10,5 +10,5 @@ public class Config {
 	public static final String PageOutput = "./src/main/resources/crawledData/pages/page";
 	public static final String MappingPageToUrl_File = "./src/main/resources/crawledData/mappingPageToUrl.txt";
 
-	public static final String SeedPage = "https://en.wikipedia.org/wiki/Software_engineering";
+	public static final String SeedPage = "http://data.europa.eu/euodp/en/data/dataset/be08bb9f-5fea-451a-a23d-8535d7fcde60";
 }

@@ -32,7 +32,7 @@ public class BasicCrawlController {
         config.setMaxDepthOfCrawling(10);
 
         // You can set the maximum number of pages to crawl. The default value is -1 for unlimited number of pages.
-        config.setMaxPagesToFetch(2);
+        config.setMaxPagesToFetch(1);
 
         // Should binary data should also be crawled? example: the contents of pdf, or the metadata of images etc
         config.setIncludeBinaryContentInCrawling(false);
