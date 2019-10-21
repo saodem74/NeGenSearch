@@ -11,7 +11,6 @@ import java.util.*;
 public class BasicSearchController {
 	static private Map<Integer, String> mapIDtoURL = new HashMap<>();
 	static private Map<Integer, List<String>> mapIDtoContent = new HashMap<>();
-	static private int numOfUrl = 0;
 	static private List<int[]> indexes = null;
 
 	private static void init() {
@@ -21,7 +20,9 @@ public class BasicSearchController {
 		String[] lines = data.split("\n");
 		for (String line : lines) {
 			String[] ss = line.split(" ");
-			int[] tmp = {Integer.parseInt(ss[0], Integer.parseInt(ss[1]))};
+			int id = Integer.parseInt(ss[0]);
+			int shift = Integer.parseInt(ss[1]);
+			int[] tmp = {id, shift};
 			indexes.add(tmp);
 		}
 
@@ -41,11 +42,11 @@ public class BasicSearchController {
 				content.add(ss[i]);
 			mapIDtoContent.put(Integer.parseInt(ss[0]), content);
 		}
-		numOfUrl = mapIDtoContent.keySet().size();
 	}
 
 	public static String getContentFromIndexies(int id, int shift) {
-		List<String> str = mapIDtoContent.get(id);
+		List<String> str = mapIDtoContent.getOrDefault(id, null);
+		if (str == null) return null;
 		StringBuilder sb = new StringBuilder();
 		for (int i = shift; i < str.size(); ++i)
 			sb.append(str.get(i)).append(" ");
@@ -81,9 +82,11 @@ public class BasicSearchController {
 			while (i >= 0) {
 				String tmpStr = getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1]);
 				if (tmpStr.startsWith(query)) {
-					String[] tmpi = {mapIDtoURL.get(indexes.get(i)[0]), getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1])};
-					inq.add(indexes.get(i)[0]);
-					res.add(tmpi);
+					if (!inq.contains(indexes.get(i)[0])) {
+						String[] tmpi = {mapIDtoURL.get(indexes.get(i)[0]), getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1])};
+						inq.add(indexes.get(i)[0]);
+						res.add(tmpi);
+					}
 					--i;
 				} else break;
 			}
@@ -92,9 +95,11 @@ public class BasicSearchController {
 			while (i < indexes.size()) {
 				String tmpStr = getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1]);
 				if (tmpStr.startsWith(query)) {
-					String[] tmpi = {mapIDtoURL.get(indexes.get(i)[0]), getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1])};
-					inq.add(indexes.get(i)[0]);
-					res.add(tmpi);
+					if (!inq.contains(indexes.get(i)[0])) {
+						String[] tmpi = {mapIDtoURL.get(indexes.get(i)[0]), getContentFromIndexies(indexes.get(i)[0], indexes.get(i)[1])};
+						inq.add(indexes.get(i)[0]);
+						res.add(tmpi);
+					}
 					++i;
 				} else break;
 			}
@@ -103,9 +108,10 @@ public class BasicSearchController {
 	}
 
 	public static void main(String[] args) {
-		List<String[]> res = BasicSearchController.getResultQuery("Computer");
+		List<String[]> res = BasicSearchController.getResultQuery("program");
 		for (int i = 0; i < res.size(); ++i) {
 			System.out.println(res.get(i)[0]);
+			System.out.println("..." + res.get(i)[1].substring(0, 50) + "...\n");
 		}
 	}
 }
