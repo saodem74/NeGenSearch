@@ -1,4 +1,5 @@
 import utils.FileReader;
+import utils.FileWriter;
 
 import java.util.*;
 
@@ -108,10 +109,20 @@ public class BasicSearchController {
 	}
 
 	public static void main(String[] args) {
-		List<String[]> res = BasicSearchController.getResultQuery("programming");
+		String query = "programming";
+		if (args != null && args.length > 0) {
+			query = args[0];
+		}
+
+		List<String[]> res = BasicSearchController.getResultQuery(query);
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < res.size(); ++i) {
 			System.out.println(res.get(i)[0]);
 			System.out.println("..." + res.get(i)[1].substring(0, 100) + "...\n");
+
+			sb.append(res.get(i)[0]).append("\n");
+			sb.append("...").append(res.get(i)[1].substring(0, 100)).append("...\n\n");
 		}
+		FileWriter.writeStringToFile(Config.ResultSearch, sb.toString());
 	}
 }

@@ -14,6 +14,7 @@ public class Config {
 
 	public static final String SeedPage = "https://en.wikipedia.org/wiki/Software_engineering";
 
+	public static final String ResultSearch =  "./src/main/resources/ResultSearch.txt";
 	public static final String IndexedFile =  "./src/main/resources/indexed/SortedIndex.txt";
 	public static final String IdToURL =  "./src/main/resources/indexed/IdToURL.txt";
 	public static final String IdToContent =  "./src/main/resources/indexed/IdToContent.txt";
