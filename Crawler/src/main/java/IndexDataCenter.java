@@ -19,6 +19,9 @@ public class IndexDataCenter {
 			String[] str = line.split(" ");
 			String content = FileReader.readStringFromFile(str[0]);
 			mapURLtoContent.put(str[1], content);
+			System.out.println(str[1]);
+			System.out.println(content);
+			System.out.println();
 		}
 	}
 
