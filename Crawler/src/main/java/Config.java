@@ -18,4 +18,5 @@ public class Config {
 	public static final String IdToURL =  "./src/main/resources/indexed/IdToURL.txt";
 	public static final String IdToContent =  "./src/main/resources/indexed/IdToContent.txt";
 	public static final String FullSortedData =  "./src/main/resources/indexed/FullSortedData.txt";
+	public static final String FullSortedData_ShortVersion =  "./src/main/resources/indexed/FullSortedData_shortVersion.txt";
 }
