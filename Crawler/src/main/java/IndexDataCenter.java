@@ -65,5 +65,23 @@ public class IndexDataCenter {
 			sb.append(idx[0]).append(" ").append(idx[1]).append("\n");
 		}
 		FileWriter.writeStringToFile(Config.IndexedFile, sb.toString());
+
+		sb = new StringBuilder();
+		for (int i = 0; i < numOfUrl; ++i) {
+			String url = mapIDtoURL.getOrDefault(i, null);
+			if (url == null) continue;
+			sb.append(i).append(" ").append(url).append("\n");
+		}
+		FileWriter.writeStringToFile(Config.IdToURL, sb.toString());
+
+		sb = new StringBuilder();
+		for (int i = 0; i < numOfUrl; ++i) {
+			List<String> content = mapIDtoContent.getOrDefault(i, null);
+			if (content == null) continue;
+			sb.append(i).append(" ");
+			for (String s : content) sb.append(s).append("\n");
+			sb.append("\n");
+		}
+		FileWriter.writeStringToFile(Config.IdToContent, sb.toString());
 	}
 }
