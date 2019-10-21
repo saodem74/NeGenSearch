@@ -13,4 +13,6 @@ public class Config {
 	public static final String MappingPageToUrl_File = "./src/main/resources/crawledData/mappingPageToUrl.txt";
 
 	public static final String SeedPage = "https://en.wikipedia.org/wiki/Software_engineering";
+
+	public static final String IndexedFile =  "./src/main/resources/indexed/SortedIndex.txt";
 }

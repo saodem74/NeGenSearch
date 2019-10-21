@@ -1,7 +1,7 @@
 import utils.FileReader;
+import utils.FileWriter;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Harry Tran on 10/21/19.
@@ -10,7 +10,10 @@ import java.util.Map;
  * @organization UTDallas
  */
 public class IndexDataCenter {
-	static private Map<String, String> mapURLtoContent = new HashMap<>();
+	static private Map<Integer, String> mapIDtoURL = new HashMap<>();
+	static private Map<Integer, List<String>> mapIDtoContent = new HashMap<>();
+	static private int numOfUrl = 0;
+	static private List<int[]> indexes = new ArrayList<>();
 
 	public static void init() {
 		String data = FileReader.readStringFromFile(Config.MappingPageToUrl_File);
@@ -18,11 +21,49 @@ public class IndexDataCenter {
 		for (String line : lines) {
 			String[] str = line.split(" ");
 			String content = FileReader.readStringFromFile(str[0]);
-			mapURLtoContent.put(str[1], content);
-			System.out.println(str[1]);
-			System.out.println(content);
-			System.out.println();
+			mapIDtoURL.put(numOfUrl, str[1]);
+
+			String[] ss = content.split(" ");
+			List<String> tmp = new ArrayList<>();
+			for (String s : ss) tmp.add(s);
+			mapIDtoContent.put(numOfUrl++, tmp);
 		}
+		System.out.println("#URL = " + Integer.toString(numOfUrl));
 	}
 
+	public static String getContentFromIndexies(int id, int shift) {
+		List<String> str = mapIDtoContent.get(id);
+		StringBuilder sb = new StringBuilder();
+		for (int i = shift; i < str.size(); ++i)
+			sb.append(str.get(i)).append(" ");
+		for (int i = 0; i < shift; ++i)
+			sb.append(str.get(i)).append(" ");
+		return sb.toString();
+	}
+
+	public static void genCircularShift() {
+		for (int i = 0; i < numOfUrl; ++i) {
+			int maxShift = mapIDtoContent.get(i).size();
+			for (int shift = 0; shift < maxShift; ++shift) {
+				int[] tmp = {i, shift};
+				indexes.add(tmp);
+			}
+		}
+		Collections.sort(indexes, new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				String s1 = getContentFromIndexies(o1[0], o1[1]);
+				String s2 = getContentFromIndexies(o2[0], o2[1]);
+				return s1.compareToIgnoreCase(s2);
+			}
+		});
+	}
+
+	public static void storeIndexedDataToFile() {
+		StringBuilder sb = new StringBuilder();
+		for (int[] idx : indexes) {
+			sb.append(idx[0]).append(" ").append(idx[1]).append("\n");
+		}
+		FileWriter.writeStringToFile(Config.IndexedFile, sb.toString());
+	}
 }

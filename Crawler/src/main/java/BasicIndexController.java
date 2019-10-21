@@ -7,5 +7,7 @@
 public class BasicIndexController {
 	public static void main(String[] args) {
 		IndexDataCenter.init();
+		IndexDataCenter.genCircularShift();
+		IndexDataCenter.storeIndexedDataToFile();
 	}
 }
