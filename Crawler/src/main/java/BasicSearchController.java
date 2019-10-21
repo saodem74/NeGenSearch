@@ -108,10 +108,10 @@ public class BasicSearchController {
 	}
 
 	public static void main(String[] args) {
-		List<String[]> res = BasicSearchController.getResultQuery("program");
+		List<String[]> res = BasicSearchController.getResultQuery("programming");
 		for (int i = 0; i < res.size(); ++i) {
 			System.out.println(res.get(i)[0]);
-			System.out.println("..." + res.get(i)[1].substring(0, 50) + "...\n");
+			System.out.println("..." + res.get(i)[1].substring(0, 100) + "...\n");
 		}
 	}
 }
