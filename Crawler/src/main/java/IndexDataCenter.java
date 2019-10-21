@@ -89,7 +89,7 @@ public class IndexDataCenter {
 		for (int[] idx : indexes) {
 			String s = getContentFromIndexies(idx[0], idx[1]);
 			sb.append(s).append("\n");
-			sb2.append(s.substring(0, 50)).append("...\n")
+			sb2.append(s.substring(0, 50)).append("...\n");
 		}
 		FileWriter.writeStringToFile(Config.FullSortedData, sb.toString());
 		FileWriter.writeStringToFile(Config.FullSortedData_ShortVersion, sb2.toString());
