@@ -32,7 +32,7 @@ public class BasicCrawlController {
         config.setMaxDepthOfCrawling(10);
 
         // You can set the maximum number of pages to crawl. The default value is -1 for unlimited number of pages.
-        config.setMaxPagesToFetch(1);
+        config.setMaxPagesToFetch(1000);
 
         // Should binary data should also be crawled? example: the contents of pdf, or the metadata of images etc
         config.setIncludeBinaryContentInCrawling(false);
@@ -71,7 +71,7 @@ public class BasicCrawlController {
         // Number of threads to use during crawling. Increasing this typically makes crawling faster. But crawling
         // speed depends on many other factors as well. You can experiment with this to figure out what number of
         // threads works best for you.
-        int numberOfCrawlers = 2;
+        int numberOfCrawlers = 5;
 
         // To demonstrate an example of how you can pass objects to crawlers, we use an AtomicInteger that crawlers
         // increment whenever they see a url which points to an image.
