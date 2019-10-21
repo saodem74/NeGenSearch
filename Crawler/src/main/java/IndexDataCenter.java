@@ -79,7 +79,7 @@ public class IndexDataCenter {
 			List<String> content = mapIDtoContent.getOrDefault(i, null);
 			if (content == null) continue;
 			sb.append(i).append(" ");
-			for (String s : content) sb.append(s).append("\n");
+			for (String s : content) sb.append(s).append(" ");
 			sb.append("\n");
 		}
 		FileWriter.writeStringToFile(Config.IdToContent, sb.toString());
