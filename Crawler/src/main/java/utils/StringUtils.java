@@ -47,7 +47,7 @@ public class StringUtils {
 		for (String s : strs) {
 			if (isStopword(s)) continue;
 			if (isAllowedStr(s)) sb.append(s).append(" ");
-			if (sb.length() >= 1000) break;
+			if (sb.length() >= 300) break;
 		}
 		return sb.toString();
 	}
