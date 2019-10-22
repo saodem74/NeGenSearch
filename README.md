@@ -21,5 +21,6 @@ To search a query
 1. Clone this project to your local
 2. Cd to directory: Crawler/
 3. Run command to start crawling: "bash search.sh programming" (if you want to search for "programming")
+4. If the program gets error when running, please compile system first by command "mvn compile"
 4. Result would be returned on both screen and file : "./src/main/resources/ResultSearch.txt"
   
