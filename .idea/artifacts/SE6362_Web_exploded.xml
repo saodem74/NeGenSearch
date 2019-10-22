@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SE6362:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SE6362_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SE6362/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SE6362" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.apache.commons:commons-lang3:3.3.2" />
+          <element id="library" level="project" name="edu.uci.ics:crawler4j:4.4.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
