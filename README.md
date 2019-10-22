@@ -20,7 +20,6 @@ To search a query
 ### How to run?
 1. Clone this project to your local
 2. Cd to directory: Crawler/
-3. Edit query search at runSearch.sh. (For example: if you want to search "programming", edit -Dexec.args in the runSearch.sh as: -Dexec.args="programming")
-4. Run command to start crawling: "bash runSearch.sh" 
-5. Result would be returned on both screen and file : "./src/main/resources/ResultSearch.txt"
+3. Run command to start crawling: "bash runSearch.sh programming" (if you want to search for "programming")
+4. Result would be returned on both screen and file : "./src/main/resources/ResultSearch.txt"
   
