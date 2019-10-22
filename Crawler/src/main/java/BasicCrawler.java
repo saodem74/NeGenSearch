@@ -92,6 +92,7 @@ public class BasicCrawler extends WebCrawler {
             FileWriter.writeStringToFile(pageFile, sb.toString());
 
             // add mapping
+	        DataCenter.printOutCurrent(pageFile, url);
 	        DataCenter.push(pageFile, url);
 
             logger.debug("Text length: {}", text.length());
