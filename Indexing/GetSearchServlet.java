@@ -1,9 +1,14 @@
 import org.json.JSONObject;
 
+import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 
 
 @WebServlet("/GetSearchServlet")
@@ -32,10 +37,18 @@ public class GetSearchServlet extends HttpServlet {
             //execute search.sh TODO
 
             try {
-                Runtime.getRuntime().exec("bash search.sh computer");
+//                String path = "/search.sh";
+//                ServletContext context = getServletContext();
+//                String realPath = context.getRealPath(path);
+//                //Runtime.getRuntime().exec("search.sh computer");
+//                Runtime runtime = Runtime.getRuntime();
+//                Process p1 = runtime.exec(realPath+" computer");
+//                p1.waitFor();
+
             }catch(Exception e){
                 e.printStackTrace();
             }
+
             //String homeDir = System.getenv("HOME");
 //            String scriptName = "./project/search.sh";
 //            String commands[] = new String[]{scriptName,"software"};
@@ -50,13 +63,41 @@ public class GetSearchServlet extends HttpServlet {
 //            }
 
             //Get data from resultSearch.txt
-//            File file = new File("../classes");
-//            if(file.exists()){
-//                System.out.println("file Name: "+file.getName());
-//                System.out.println("File exists.....");
-//            }else{
-//                System.out.println("File not exists.....");
-//            }
+            String path = "/src/main/resources/ResultSearch.txt";
+            ServletContext context = getServletContext();
+            //Solution1
+//            String realPath = context.getRealPath(path);
+            //Solution2
+//            InputStream stream = context.getResourceAsStream(path);
+
+            //Solution3
+            URL url = context.getResource(path);
+
+            BufferedReader objReader = null;
+            try {
+                String strCurrentLine = "";
+
+                objReader = new BufferedReader(new FileReader(url.getPath()));
+
+                while ((strCurrentLine = objReader.readLine()) != null) {
+
+                    System.out.println(strCurrentLine);
+                }
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            } finally {
+
+                try {
+                    if (objReader != null)
+                        objReader.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
 
 
             //Solution2 direct Harry Code
