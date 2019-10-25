@@ -34,11 +34,13 @@ To search a query
 6. File -> Project Structure -> Libraries -> + from Maven -> find "edu.uci.ics:crawler4j:4.4.0"
 7. Then you can see Top-Right, it shows add configuration, choose Tomcat local, choose the location where your tomcat locate
 8. In Run/Debug Configuration window, choose "Deployment Tab", add your project artifact to it, and and green triangle should be activated
-9. Finally, edit "web.xml" under WEB-INF, paste this one, this would let server know which web page to show  
+9. Finally, edit "web.xml" under WEB-INF, paste this one, this would let server know which web page to show
+~~~~  
 <display-name>SearchEngineRef</display-name>  
 <welcome-file-list>  
     <welcome-file>search.jsp</welcome-file>  
 </welcome-file-list>
+~~~~
 10. Press green triangle button, run server
 11. When you type something, press search button, the console should show "Enter Servlet Controller Post Do" which is in "GetSearchServlet.java"
   
