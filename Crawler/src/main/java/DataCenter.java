@@ -16,6 +16,11 @@ public class DataCenter {
 		mapPageToURL.put(page, url);
 	}
 
+	public static void printOutCurrent(String page, String url) {
+		if (mapPageToURL.containsKey(page)) return;
+		FileWriter.writeStringToEndOfFile(Config.MappingPageToUrl_File, page + " " + url + "\n");
+
+	}
 	public static void printOut() {
 		StringBuilder sb = new StringBuilder();
 		for (String s : mapPageToURL.keySet()) {
