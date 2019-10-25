@@ -117,11 +117,12 @@ public class BasicSearchController {
 		List<String[]> res = BasicSearchController.getResultQuery(query);
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < res.size(); ++i) {
+			int ii = Math.min(100, res.get(i)[1].length());
 			System.out.println(res.get(i)[0]);
-			System.out.println("..." + res.get(i)[1].substring(0, 100) + "...\n");
+			System.out.println("..." + res.get(i)[1].substring(0, ii) + "...\n");
 
 			sb.append(res.get(i)[0]).append("\n");
-			sb.append("...").append(res.get(i)[1].substring(0, 100)).append("...\n\n");
+			sb.append("...").append(res.get(i)[1].substring(0, ii)).append("...\n\n");
 		}
 		FileWriter.writeStringToFile(Config.ResultSearch, sb.toString());
 	}
