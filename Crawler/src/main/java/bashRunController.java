@@ -20,6 +20,7 @@ public class bashRunController {
             // adding command and args to the list
             cmdList.add("sh");
             cmdList.add(path + bashFile);
+            cmdList.add("computer");
             ProcessBuilder pb = new ProcessBuilder(cmdList);
             p = pb.start();
             p.waitFor();
