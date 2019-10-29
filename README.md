@@ -24,6 +24,12 @@ To search a query
 4. If the program gets error when running, please compile system first by command "mvn compile"
 5. Result would be returned on both screen and file : "./src/main/resources/ResultSearch.txt"
 
+## Bash run Controller
+1. Copy file ./Crawler/src/main/java/bashRunController.java to your project
+2. In bashRunController.java, change path to Crawler
+3. Change path to Crawler in ./Crawler/search.sh
+4. Run class bashRunController.
+
 ## FrontEnd to BackEnd
 ### How to transfer from Java Structure to Java Web Structure?
 1. File -> Project Structure -> Facets -> + -> choose Web
