@@ -50,3 +50,30 @@ To search a query
 10. Press green triangle button, run server
 11. When you type something, press search button, the console should show "Enter Servlet Controller Post Do" which is in "GetSearchServlet.java"
   
+  
+## Requirement
+
+NegenSerach shall allow for:
+
+[DONE] • Case sensitive search: The system shall store the input as given and retrieve the input also as
+such;
+
+[DONE] • Hyperlink enforcement: When the user clicks on the URL, which has been retrieved as the result
+of a query, the system shall take the user to the corresponding web site;
+
+• Specifying OR/AND/NOT Search: A keyword-based search is usually an OR search, i.e., a
+search on any of the keywords given. The system shall allow the user to specify the mode of
+search, using “OR”, “AND” or “NOT”;
+
+• Multiple search engines: to run concurrently;
+
+• Deletion of out-of-date URL: and corresponding description from the database;
+
+[DONE] • Listing of the query result in ascending alphabetical order; most frequently accessed order, or per
+payment,
+
+[DONE] • Setting the number of results to show per page, and navigation between pages;
+
+• Autofill, while correcting typographical errors,
+
+[DONE] • Filtering out symbols that are not meaningful, according to the user configuration.
