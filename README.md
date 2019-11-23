@@ -61,11 +61,11 @@ such;
 [DONE] • Hyperlink enforcement: When the user clicks on the URL, which has been retrieved as the result
 of a query, the system shall take the user to the corresponding web site;
 
-• Specifying OR/AND/NOT Search: A keyword-based search is usually an OR search, i.e., a
+[DONE] • Specifying OR/AND/NOT Search: A keyword-based search is usually an OR search, i.e., a
 search on any of the keywords given. The system shall allow the user to specify the mode of
 search, using “OR”, “AND” or “NOT”;
 
-• Multiple search engines: to run concurrently;
+[DONE] • Multiple search engines: to run concurrently;
 
 • Deletion of out-of-date URL: and corresponding description from the database;
 
